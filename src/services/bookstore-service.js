@@ -1,12 +1,12 @@
 export default class BookStoreService {
     getBooks() {
         return [{
-                name: 'first',
-                who: 'iliya'
+                title: 'first',
+                author: 'iliya'
             },
             {
-                who: 'nike',
-                name: 'first too'
+                title: 'nike',
+                author: 'first too'
             }
         ];
     };
