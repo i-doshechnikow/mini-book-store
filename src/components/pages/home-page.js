@@ -1,21 +1,15 @@
 import React from 'react';
 import BookList from '../book-list';
+import ShoppingCartTable from '../shopping-cart-table';
 
 const HomePage = () => {
-    const books = [{
-        id: '1',
-        title: 'first',
-        author: 'iliya'
-    },
-    {
-        id: '2',
-        title: 'nike',
-        author: 'first too'
-    }
-];
     return (
-    <BookList books={books} />
-    );
+        <div>
+            <BookList />
+            <ShoppingCartTable/>
+        </div>
+        );
+
 };
 
 export default HomePage;
