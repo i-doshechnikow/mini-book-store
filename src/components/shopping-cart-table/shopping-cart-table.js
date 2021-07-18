@@ -35,7 +35,15 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
         <div className="shopping-cart-table">
             <h2>Your Order</h2>
             <table className="table">
-                <thead/>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item</th>
+                        <th>Count</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {
                         items.map(renderRow)
