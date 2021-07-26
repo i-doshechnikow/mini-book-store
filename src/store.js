@@ -1,8 +1,8 @@
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 
 import reducer from "./reducers";
 
-const enhancer = (createStore) => (...args) => {
+const stringEnhancer = (createStore) => (...args) => {
     const store = createStore(...args);
     const originalDispatch = store.dispatch;
 
@@ -18,7 +18,19 @@ const enhancer = (createStore) => (...args) => {
     return store;    
 };
 
-const store = createStore(reducer, enhancer);
+const logEnhancer = (createStore) => (...args) => {
+    const store = createStore(...args);
+    const originalDispatch = store.dispatch;
+
+    store.dispatch = (action) => {
+
+        console.log(action.type);
+        return originalDispatch(action);
+    }
+    return store;    
+};
+
+const store = createStore(reducer, compose(stringEnhancer, logEnhancer));
 
 store.dispatch('HELLO_WORLD');
 
